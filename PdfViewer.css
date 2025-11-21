@@ -1,0 +1,143 @@
+.pdf-viewer-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  background-color: #525659;
+}
+
+.pdf-viewer-container.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+}
+
+.pdf-toolbar {
+  flex-shrink: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+.pdf-content {
+  flex: 1;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.react-pdf__Document {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.react-pdf__Page {
+  max-width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  background-color: white;
+  margin: 0 auto;
+}
+
+.react-pdf__Page canvas {
+  max-width: 100%;
+  height: auto !important;
+}
+
+.page-input {
+  text-align: center;
+  background-color: #343a40;
+  color: white;
+  border: 1px solid #6c757d;
+}
+
+.page-input:focus {
+  background-color: #495057;
+  color: white;
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.zoom-level {
+  min-width: 50px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.btn-outline-light:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+@media (max-width: 767.98px) {
+  .pdf-content {
+    padding: 10px;
+  }
+
+  .pdf-toolbar .btn {
+    padding: 0.25rem 0.5rem;
+  }
+
+  .pdf-toolbar {
+    font-size: 14px;
+  }
+
+  .zoom-level {
+    font-size: 12px;
+    min-width: 40px;
+  }
+
+  .page-input {
+    width: 50px !important;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .pdf-content {
+    padding: 5px;
+  }
+
+  .pdf-toolbar .row > div {
+    justify-content: center !important;
+  }
+
+  .pdf-toolbar .btn {
+    padding: 0.2rem 0.4rem;
+  }
+
+  .pdf-toolbar svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .pdf-content {
+    padding: 15px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .pdf-content {
+    padding: 30px;
+  }
+}
+
+@media print {
+  .pdf-toolbar {
+    display: none;
+  }
+
+  .pdf-viewer-container {
+    height: auto;
+  }
+
+  .pdf-content {
+    overflow: visible;
+  }
+}
